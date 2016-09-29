@@ -1,0 +1,17 @@
+ $LCMODL
+ OWNER = ''
+ KEY = 123456789
+ TITLE = 'SVS_97'
+ FILRAW = 'test_data/svs_97.RAW'
+ FILPS = 'test_data/svs_97.PS'
+ FILBAS = '/media/mrs_proc/ben/97ms demo/LCModel files/97_basis_set.basis'
+ NUNFIL = 1024
+ HZPPPM = 123.226103
+ DELTAT = 0.000833
+ FILTAB = 'test_data/svs_97.TABLE'
+ LTABLE = 7
+ FILCSV = 'test_data/svs_97.CSV'
+ LCSV = 11
+ FILCOO = 'test_data/svs_97.COORD'
+ LCOORD = 9
+ $END

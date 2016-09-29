@@ -8,5 +8,6 @@ setup(
     license='MIT',
     author='bennyrowland',
     author_email='bennyrowland@mac.com',
-    description='Local CLI to forward lcmodel commands to remote machine'
+    description='Local CLI to forward lcmodel commands to remote machine',
+    install_requires=['parsley']
 )
