@@ -56,7 +56,7 @@ def test_namelist():
 
 
 def test_control_file():
-    with open("test_data/lcm.control") as fin:
+    with open("tests/test_data/lcm.control") as fin:
         control_file_text = fin.read()
         assert ("LCMODL", {
             "KEY": 123456789,

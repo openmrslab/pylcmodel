@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.5"
+# command to install the package and any dependencies
+install:
+  - pip install setuptools>=26.0
+  - pip install .
+# command to actually run the tests
+script: py.test
