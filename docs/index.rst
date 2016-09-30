@@ -11,7 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
+.. automodule:: pylcmodel.namelist
+   :members:
 
 Indices and tables
 ==================

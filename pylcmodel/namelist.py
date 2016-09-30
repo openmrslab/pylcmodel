@@ -28,4 +28,19 @@ parser = parsley.makeGrammar(grammar, {})
 
 
 def reads(text):
+    """
+    Reads a namelist from a string.
+
+    Parameters
+    ----------
+    text : str
+        A string containing a namelist
+
+    Returns
+    -------
+    name : str
+        The name of the namelist
+    list : dict
+        The set of key-value pairs from the namelist
+    """
     return parser(text).namelist()
