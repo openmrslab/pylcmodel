@@ -4,6 +4,9 @@ python:
 # command to install the package and any dependencies
 install:
   - pip install setuptools>=26.0
+  - pip install coveralls pytest-cov
   - pip install .
 # command to actually run the tests
-script: py.test
+script: py.test --cov .
+after_success:
+  - coveralls
