@@ -27,5 +27,5 @@ falsehood = 'F' -> False
 parser = parsley.makeGrammar(grammar, {})
 
 
-def parse(text):
+def reads(text):
     return parser(text).namelist()

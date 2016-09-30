@@ -74,4 +74,4 @@ def test_control_file():
             "FILBAS": "/media/mrs_proc/ben/97ms demo/LCModel files/97_basis_set.basis",
             "FILPS": "test_data/svs_97.PS",
             "FILCOO": "test_data/svs_97.COORD"
-        }) == pylcmodel.namelist.parse(control_file_text.strip())
+        }) == pylcmodel.namelist.reads(control_file_text.strip())
