@@ -75,3 +75,35 @@ def test_control_file():
             "FILPS": "test_data/svs_97.PS",
             "FILCOO": "test_data/svs_97.COORD"
         }) == pylcmodel.namelist.reads(control_file_text.strip())
+
+
+def test_write_number():
+    target = """ $LCMODL
+ NUM = 4,
+ $END
+"""
+    assert target == pylcmodel.namelist.dumps("LCMODL", {"NUM": 4})
+
+
+def test_write_string():
+    target = """ $LCMODL
+ STR = 'test',
+ $END
+"""
+    assert target == pylcmodel.namelist.dumps("LCMODL", {"STR": "test"})
+
+
+def test_write_truth():
+    target = """ $LCMODL
+ TRUE = T,
+ $END
+"""
+    assert target == pylcmodel.namelist.dumps("LCMODL", {"TRUE": True})
+
+
+def test_write_falsehood():
+    target = """ $LCMODL
+ FALSE = F,
+ $END
+"""
+    assert target == pylcmodel.namelist.dumps("LCMODL", {"FALSE": False})
