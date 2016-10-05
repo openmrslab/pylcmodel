@@ -25,6 +25,10 @@ def test_strings():
     assert "hello world" == pylcmodel.namelist.parser("'hello world'").string()
 
 
+def test_unquoted_string():
+    assert "helloworld" == pylcmodel.namelist.parser("helloworld\n").string()
+
+
 def test_string_list():
     assert ["hello", "world"] == pylcmodel.namelist.parser("'hello' 'world'").stringlist()
 
@@ -49,32 +53,44 @@ def test_namelist():
     namelist_string = """
     $name
      key='value'
+     unquoted = test,
      other=2.3
     $END
     """.strip()
-    assert ("name", {"KEY": "value", "OTHER": 2.3}) == pylcmodel.namelist.parser(namelist_string).namelist()
+    target = ("name",
+              {"KEY": "value", "OTHER": 2.3, "UNQUOTED": "test"})
+    assert target == pylcmodel.namelist.parser(namelist_string).namelist()
+
+
+def test_namelist_two():
+    namelist_string = """
+    $name
+     SPTYPE = liver-11 ,
+    $END
+    """.strip()
+    assert ("name", {"SPTYPE": "liver-11"}) == pylcmodel.namelist.parser(namelist_string).namelist()
 
 
 def test_control_file():
     with open("tests/test_data/lcm.control") as fin:
         control_file_text = fin.read()
-        assert ("LCMODL", {
-            "KEY": 123456789,
-            "LCSV": 11,
-            "OWNER": "",
-            "FILTAB": "test_data/svs_97.TABLE",
-            "DELTAT": 0.000833,
-            "NUNFIL": 1024,
-            "HZPPPM": 123.226103,
-            "LCOORD": 9,
-            "TITLE": "SVS_97",
-            "FILRAW": "test_data/svs_97.RAW",
-            "LTABLE" :7,
-            "FILCSV": "test_data/svs_97.CSV",
-            "FILBAS": "/media/mrs_proc/ben/97ms demo/LCModel files/97_basis_set.basis",
-            "FILPS": "test_data/svs_97.PS",
-            "FILCOO": "test_data/svs_97.COORD"
-        }) == pylcmodel.namelist.reads(control_file_text.strip())
+    assert ("LCMODL", {
+        "KEY": 123456789,
+        "LCSV": 11,
+        "OWNER": "",
+        "FILTAB": "test_data/svs_97.TABLE",
+        "DELTAT": 0.000833,
+        "NUNFIL": 1024,
+        "HZPPPM": 123.226103,
+        "LCOORD": 9,
+        "TITLE": "SVS_97",
+        "FILRAW": "test_data/svs_97.RAW",
+        "LTABLE" :7,
+        "FILCSV": "test_data/svs_97.CSV",
+        "FILBAS": "/media/mrs_proc/ben/97ms demo/LCModel files/97_basis_set.basis",
+        "FILPS": "test_data/svs_97.PS",
+        "FILCOO": "test_data/svs_97.COORD"
+    }) == pylcmodel.namelist.reads(control_file_text.strip())
 
 
 def test_write_number():
