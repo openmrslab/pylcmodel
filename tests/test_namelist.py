@@ -1,4 +1,4 @@
-import pylcmodel.namelist
+import pylcmodel
 
 
 def test_integer():

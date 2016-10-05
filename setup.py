@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open("./pylcmodel/_version.py") as f:
+    exec(f.read())
+
 setup(
     name='pylcmodel',
-    version='0.0.1',
+    version=__version__,
     packages=find_packages(),
     url='https://github.com/openmrslab/pylcmodel.git',
     license='MIT',
