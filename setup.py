@@ -12,5 +12,6 @@ setup(
     author='bennyrowland',
     author_email='bennyrowland@mac.com',
     description='Local CLI to forward lcmodel commands to remote machine',
-    install_requires=['parsley']
+    install_requires=['parsley', 'cryptography'],
+    test_requires=['pytest']
 )
