@@ -14,6 +14,9 @@ Contents:
 .. automodule:: pylcmodel.namelist
    :members:
 
+.. automodule:: pylcmodel._lcmodel
+   :members:
+
 Indices and tables
 ==================
 
