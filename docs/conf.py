@@ -16,6 +16,8 @@
 import sys
 import os
 
+path = os.path.abspath('.').rstrip("/docs")
+sys.path.insert(0, path)
 import pylcmodel
 
 # If extensions (or modules to document with autodoc) are in another directory,
