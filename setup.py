@@ -12,6 +12,13 @@ setup(
     author='bennyrowland',
     author_email='bennyrowland@mac.com',
     description='Local CLI to forward lcmodel commands to remote machine',
+    entry_points={
+        "console_scripts": [
+            "lcmodel = pylcmodel.cli:lcmodel_cli"
+        ]
+    },
     install_requires=['parsley', 'cryptography', 'paramiko'],
-    test_requires=['pytest']
+    extras_require={
+        'test': ['pytest-cov', 'coverage', 'pyfakefs']
+    }
 )
