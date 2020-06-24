@@ -1,7 +1,7 @@
 import parsley
 
 grammar = r"""
-namelist = '$' name:n pairlist:p ws '$END'? -> (n, dict(p))
+namelist = ws '$' name:n pairlist:p ws '$END'? -> (n, dict(p))
 
 pairlist = (pair:first (pair)*:rest -> [first] + rest) | -> []
 pair = ws name:k ws '=' ws valuelist:v ws ','? -> (k.upper(), v)

@@ -3,9 +3,9 @@ python:
   - "3.5"
 # command to install the package and any dependencies
 install:
-  - pip install setuptools>=26.0
+  - pip install setuptools>=46.1
   - pip install coveralls pytest-cov
-  - pip install -e .
+  - pip install -e .[test]
 # command to actually run the tests
 script: py.test --cov=pylcmodel .
 after_success:
